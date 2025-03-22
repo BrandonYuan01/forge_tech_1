@@ -1,0 +1,43 @@
+html {
+    --section-background-color: linear-gradient(
+            to bottom left,
+            rgba(10, 9, 9, 0.9),
+            rgba(5, 3, 15, 0.95)
+    );
+
+    --imp-text-color: #C6A1CF;
+
+    font-family: Arial, sans-serif;
+    color: white;
+    background: var(--section-background-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    color: var(--imp-text-color);
+    font-weight: bold;
+    max-width: 600px;
+    text-align: center;
+}
+.bold {
+    color: var(--imp-text-color);
+}
+
+.info-list {
+    list-style-type: disc;
+    text-align: left;
+    max-width: 400px;
+}
+
+.uva {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 100%;
+}
