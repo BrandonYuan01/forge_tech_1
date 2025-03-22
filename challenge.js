@@ -11,23 +11,58 @@ const bookList = [
 Using the following array of objects,
 */
 // (1) Write an arrow function that adds a new entry to bookList
-
+const addBook = (title, author) => {
+  bookList.push({ title, author });
+};
 // (2) Write an arrow function that removes a specific book from the bookList
-
+const removeBook = (title) => {
+  const index = bookList.findIndex(book => book.title === title);
+  if (index !== -1) {
+    bookList.splice(index, 1);
+  }
+};
 // (3) Write an arrow function that lists out all the books or all the authors in the book list */
-
+const listBooksOrAuthors = (type) => {
+  if (type === 'books') {
+    return bookList.map(book => book.title);
+  } else if (type === 'authors') {
+    return bookList.map(book => book.author);
+  }
+};
 /*
 /* Intermediate Challenge */
 
 /* (4) Write a one-line arrow function that takes in a number and returns a string stating whether the
   number is positive or negative using a ternary operator (assume the number will never be zero) */
-
+const checkNumber = (num) => num > 0 ? "Positive" : "Negative";
 /* (5) Write a switch statement for a 'day' variable that prints out something based off of what day of
   the week it is i.e. if it's Monday, print "good luck" or wednesday print "hump day" or friday print "party" */
+const dayOfWeek = (day) => {
+  switch (day.toLowerCase()) {
+    case 'monday':
+      console.log('I hate mondays');
+      break;
+    case 'wednesday':
+      console.log('Hump day!');
+      break;
+    case 'friday':
+      console.log('Time to drink (water)!');
+      break;
+    default:
+      console.log('Have a good day!');
+  }
+};
 
 /* (6) Write an arrow function that takes in a number, and uses a for loop to return the sum of every
   number from 1 up to that number
   ex. sumUp(7) = 28 */
+const sumUp = (num) => {
+  let sum = 0;
+  for (let i = 1; i <= num; i++) {
+    sum += i;
+  }
+  return sum;
+};
 
 /* Harder Challenge */
 
