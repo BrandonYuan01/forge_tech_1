@@ -68,10 +68,19 @@ const sumUp = (num) => {
 
 /* (7) Write an arrow function that converts the temperature from Celsius to Fahrenheit and then tells
     me what I should wear accordingly */
-
+const tempConverter = (celsius) => {
+  const fahrenheit = (celsius * 9/5) + 32;
+  return fahrenheit > 75 ? 'Wear shorts' : 'Wear a jacket';
+};
 /* (8) Write a function that takes in an array and prints out the amount of truthy values in that array
   using .forEach() */
-
+const countTruthy = (arr) => {
+  let count = 0;
+  arr.forEach(value => {
+    if (value) count++;
+  });
+  console.log(count);
+};
 /* (9) Using the map function and arrow syntax, return an array of object that contain a fullName field
   and an averageGrade field representing the letter grade that corresponds to their GPA */
 
@@ -85,6 +94,18 @@ const attendance = [
   { firstName: "Jared", lastName: "Nguyen", gpa: 4.0 },
 ];
 
+const gpaToGrade = (gpa) => {
+  if (gpa >= 4.0) return 'A';
+  else if (gpa >= 3.0) return 'B';
+  else if (gpa >= 2.0) return 'C';
+  else if (gpa >= 1.0) return 'D';
+  return 'F';
+};
+
+const studentGrades = attendance.map(student => ({
+  fullName: `${student.firstName} ${student.lastName}`,
+  averageGrade: gpaToGrade(student.gpa)
+}));
 /* Hardest Challenge (Don't do this without completing harder challenges) */
 
 /* Write a function that solves the "every number eventually equals 4" puzzle. The output should be
@@ -94,3 +115,12 @@ const attendance = [
 
 // assuming num < 1,000,000. Pattern holds with higher numbers but just requires more checks
 // does not support leading zeros
+
+const numberEqualsFour = (num) => {
+  const path = [num];
+  while (num !== 4) {
+    num = num.toString().split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+    path.push(num);
+  }
+  return path;
+};
